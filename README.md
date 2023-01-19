@@ -31,4 +31,4 @@ docker compose up nginx-with-dockerfile
 
 ### Test
 
-Go to http://localhost:8081/example or http://localhost:8082/example depending on the version. You should see the contents http://example.com proxied with the use of the environment variable.
+Go to http://localhost:8081/example or http://localhost:8082/example depending on the version. You should see the contents of http://example.com proxied with the use of the environment variable.
