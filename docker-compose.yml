@@ -4,7 +4,7 @@ services:
     container_name: nginx-no-dockerfile
     image: nginx:1.23.1-alpine
     ports:
-      - 8082:80
+      - 8081:80
     volumes:
       - ./site/index.html:/usr/share/nginx/html/index.html
       - ./site/nginx.conf:/etc/nginx/templates/nginx.conf.template
@@ -20,7 +20,7 @@ services:
       context: ./site
       dockerfile: ./Dockerfile
     ports:
-      - 8081:80
+      - 8082:80
     volumes:
       - ./site/index.html:/usr/share/nginx/html/index.html
     environment:

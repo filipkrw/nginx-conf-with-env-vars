@@ -12,17 +12,23 @@ This will cause the `nginx.conf.template` file to be copied to `/etc/nginx` as `
 
 There is one caveat to keep in mind: using `command` property in `docker-compose.yml` seems to be disabling the extraction functionality. If you need to run a custom command to start-up nginx, you can use the Dockerfile version.
 
-## How to run the example
+## Example
 
-### No Dockerfile version
+### Run
+
+#### No Dockerfile version
 
 ```bash
 docker compose up nginx-no-dockerfile
 ```
 
-### Dockerfile version
+#### Dockerfile version
 
 ```bash
 docker compose build nginx-with-dockerfile
 docker compose up nginx-with-dockerfile
 ```
+
+### Test
+
+Go to http://localhost:8081/example or http://localhost:8082/example depending on the version. You should see the contents http://example.com proxied with the use of the environment variable.
