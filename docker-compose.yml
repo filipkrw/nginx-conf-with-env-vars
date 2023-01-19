@@ -1,0 +1,28 @@
+version: "3"
+services:
+  nginx-no-dockerfile:
+    container_name: nginx-no-dockerfile
+    image: nginx:1.23.1-alpine
+    ports:
+      - 8082:80
+    volumes:
+      - ./site/index.html:/usr/share/nginx/html/index.html
+      - ./site/nginx.conf:/etc/nginx/templates/nginx.conf.template
+    working_dir: /usr/share/nginx/html
+    environment:
+      NGINX_ENVSUBST_OUTPUT_DIR: /etc/nginx
+      API_URL: http://example.com
+
+
+  nginx-with-dockerfile:
+    container_name: nginx-with-dockerfile
+    build:
+      context: ./site
+      dockerfile: ./Dockerfile
+    ports:
+      - 8081:80
+    volumes:
+      - ./site/index.html:/usr/share/nginx/html/index.html
+    environment:
+      NGINX_ENVSUBST_OUTPUT_DIR: /etc/nginx
+      API_URL: http://example.com
